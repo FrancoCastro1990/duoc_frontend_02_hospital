@@ -17,11 +17,15 @@ export { usePatients } from './hooks/usePatients';
 // Services
 export { PatientsService } from './services/PatientsService';
 
+// React Query (TanStack Query)
+export { patientsKeys } from './queries/keys';
+export { createPatientsQueryOptions } from './queries/options';
+
 // Types
 export type { Patient, IPatientsService } from './types';
 
 // Components
-export { PatientStatCard, LoadingState } from './components';
+export { PatientStatCard, LoadingState, SearchBar } from './components';
 
 // Utilities
 export { formatDate } from './utils/formatters';

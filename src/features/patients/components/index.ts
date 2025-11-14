@@ -3,3 +3,4 @@
  */
 export { PatientStatCard } from './PatientStatCard';
 export { LoadingState } from './LoadingState';
+export { SearchBar } from './SearchBar';

@@ -38,6 +38,10 @@ export { useLanding } from './hooks/useLanding';
 // Services
 export { LandingService } from './services/LandingService';
 
+// React Query (TanStack Query)
+export { landingKeys } from './queries/keys';
+export { createLandingQueryOptions } from './queries/options';
+
 // Types - Export all types from types folder
 export type {
   DashboardStatistics,

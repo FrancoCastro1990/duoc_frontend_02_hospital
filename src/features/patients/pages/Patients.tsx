@@ -4,7 +4,7 @@ import { usePatients } from '../hooks/usePatients';
 import { PatientsService } from '../services/PatientsService';
 import type { Patient } from '../types';
 import { formatDate } from '../utils/formatters';
-import { PatientStatCard, LoadingState } from '../components';
+import { PatientStatCard, LoadingState, SearchBar } from '../components';
 
 // Create service instance
 const patientsService = new PatientsService();
@@ -14,7 +14,8 @@ const patientsService = new PatientsService();
  * Main page component that displays all patients in a professional table
  */
 export const Patients: React.FC = () => {
-  const { patients, loading } = usePatients(patientsService);
+  const { loading, searchTerm, setSearchTerm, filteredPatients } =
+    usePatients(patientsService);
 
   if (loading) {
     return <LoadingState message="Please wait while we fetch the data..." />;
@@ -43,7 +44,7 @@ export const Patients: React.FC = () => {
           <PatientStatCard
             icon={Users}
             label="Total Patients"
-            value={patients.length}
+            value={filteredPatients.length}
             colorClass="text-secondary-600"
             bgClass="bg-secondary-50"
             borderClass="border-secondary-100"
@@ -52,7 +53,9 @@ export const Patients: React.FC = () => {
           <PatientStatCard
             icon={Calendar}
             label="Currently Admitted"
-            value={patients.filter((p) => p.departureDate === null).length}
+            value={
+              filteredPatients.filter((p) => p.departureDate === null).length
+            }
             colorClass="text-accent-700"
             bgClass="bg-accent-50"
             borderClass="border-accent-200"
@@ -61,11 +64,22 @@ export const Patients: React.FC = () => {
           <PatientStatCard
             icon={FileText}
             label="Discharged"
-            value={patients.filter((p) => p.departureDate !== null).length}
+            value={
+              filteredPatients.filter((p) => p.departureDate !== null).length
+            }
             colorClass="text-neutral-600"
             bgClass="bg-neutral-50"
             borderClass="border-neutral-200"
             delay={100}
+          />
+        </div>
+
+        {/* Search Bar */}
+        <div className="mb-6">
+          <SearchBar
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            placeholder="Search by name or DNI..."
           />
         </div>
 
@@ -99,7 +113,7 @@ export const Patients: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-secondary-100">
-                {patients.map((patient: Patient, index: number) => (
+                {filteredPatients.map((patient: Patient, index: number) => (
                   <tr
                     key={patient.id}
                     className="hover:bg-secondary-50 transition-colors duration-200"
@@ -144,13 +158,19 @@ export const Patients: React.FC = () => {
         </div>
 
         {/* Empty State */}
-        {patients.length === 0 && (
+        {filteredPatients.length === 0 && (
           <div className="bg-white rounded-2xl shadow-md border-2 border-secondary-100 text-center py-16 px-6">
             <div className="p-4 bg-secondary-50 rounded-full w-24 h-24 mx-auto mb-6 flex items-center justify-center">
               <Users className="w-12 h-12 text-secondary-400" />
             </div>
-            <p className="text-xl font-semibold text-primary-900 mb-2">No patients found</p>
-            <p className="text-base text-primary-600">The patient list is currently empty</p>
+            <p className="text-xl font-semibold text-primary-900 mb-2">
+              {searchTerm ? 'No patients match your search' : 'No patients found'}
+            </p>
+            <p className="text-base text-primary-600">
+              {searchTerm
+                ? `Try adjusting your search term: "${searchTerm}"`
+                : 'The patient list is currently empty'}
+            </p>
           </div>
         )}
       </div>

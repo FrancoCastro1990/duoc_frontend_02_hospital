@@ -46,3 +46,13 @@ export interface PatientStatCardProps {
 export interface LoadingStateProps {
   message?: string;
 }
+
+/**
+ * SearchBar Component Props
+ * Props for the search bar component
+ */
+export interface SearchBarProps {
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+  placeholder?: string;
+}
