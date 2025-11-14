@@ -1,0 +1,310 @@
+/* Tailwind CSS v4 - Import base styles */
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Configuration using @theme directive */
+@theme {
+  /* Custom color palette for hospital dashboard */
+  /* Primary colors - Soft whites and light grays for clean backgrounds */
+  --color-primary-50: #FFFFFF;
+  --color-primary-100: #FAFBFC;
+  --color-primary-200: #F5F7FA;
+  --color-primary-300: #E8EAED;
+  --color-primary-400: #D1D5DB;
+  --color-primary-500: #9CA3AF;
+  --color-primary-600: #6B7280;
+  --color-primary-700: #4B5563;
+  --color-primary-800: #374151;
+  --color-primary-900: #1F2937;
+  --color-primary-950: #111827;
+
+  /* Secondary colors - Calming lavender blue pastel */
+  --color-secondary-50: #F5F5FF;
+  --color-secondary-100: #EDEDFC;
+  --color-secondary-200: #E8EAF6;
+  --color-secondary-300: #D1D4E8;
+  --color-secondary-400: #B8BDD9;
+  --color-secondary-500: #9FA8DA;
+  --color-secondary-600: #8893C7;
+  --color-secondary-700: #7178B3;
+  --color-secondary-800: #5A5F9D;
+  --color-secondary-900: #474B7E;
+  --color-secondary-950: #2E3154;
+
+  /* Accent colors - Natural sage green for health and wellness */
+  --color-accent-50: #F1F8F4;
+  --color-accent-100: #E8F5E9;
+  --color-accent-200: #C8E6C9;
+  --color-accent-300: #B5DDB7;
+  --color-accent-400: #A5D6A7;
+  --color-accent-500: #81C784;
+  --color-accent-600: #66BB6A;
+  --color-accent-700: #4CAF50;
+  --color-accent-800: #388E3C;
+  --color-accent-900: #2E7D32;
+  --color-accent-950: #1B5E20;
+
+  /* Neutral grays for backgrounds and text */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Success, warning, error states - Softer pastel versions */
+  --color-success-50: #F0FDF4;
+  --color-success-500: #4ADE80;
+  --color-success-600: #22C55E;
+  --color-success-700: #16A34A;
+
+  --color-warning-50: #FFF9EB;
+  --color-warning-500: #FDB954;
+  --color-warning-600: #F59E0B;
+  --color-warning-700: #D97706;
+
+  --color-error-50: #FEF2F2;
+  --color-error-500: #FB7185;
+  --color-error-600: #F43F5E;
+  --color-error-700: #E11D48;
+
+  /* Font family configuration */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
+
+  /* Soft shadows for subtle depth and elevation */
+  --shadow-sm: 0 2px 8px rgba(107, 114, 128, 0.06);
+  --shadow: 0 4px 12px rgba(107, 114, 128, 0.08);
+  --shadow-md: 0 4px 16px rgba(107, 114, 128, 0.1);
+  --shadow-lg: 0 8px 32px rgba(107, 114, 128, 0.12);
+  --shadow-xl: 0 12px 48px rgba(107, 114, 128, 0.15);
+  --shadow-2xl: 0 20px 64px rgba(107, 114, 128, 0.18);
+  --shadow-inner: inset 0 2px 4px 0 rgba(107, 114, 128, 0.08);
+  --shadow-premium: 0 10px 40px -10px rgba(159, 168, 218, 0.25);
+  --shadow-glow: 0 0 20px rgba(165, 214, 167, 0.35);
+
+  /* Spacing extensions */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-104: 26rem;
+  --spacing-112: 28rem;
+  --spacing-128: 32rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+
+  /* Animation durations */
+  --duration-250: 250ms;
+  --duration-350: 350ms;
+
+  /* Timing functions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-smooth-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Custom animations */
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in-down {
+    0% { opacity: 0; transform: translateY(-5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-right {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes slide-in-left {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-in-down: fade-in-down 0.2s ease-out;
+  --animate-slide-in-right: slide-in-right 0.3s ease-out;
+  --animate-slide-in-left: slide-in-left 0.3s ease-out;
+  --animate-scale-in: scale-in 0.3s ease-out;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+/* Custom base styles and CSS variables */
+@layer base {
+  :root {
+    /* Legacy CSS variables - Hospital dashboard theme */
+    --color-primary: #1F2937;      /* primary-900 - Dark text */
+    --color-secondary: #9FA8DA;    /* secondary-500 - Lavender blue */
+    --color-accent: #A5D6A7;       /* accent-400 - Sage green */
+    --color-background: #FFFFFF;   /* primary-50 - Clean white */
+    --color-text: #374151;         /* primary-800 - Readable gray */
+    --color-text-light: #9CA3AF;   /* primary-500 - Light gray */
+    --color-white: #FFFFFF;
+    --color-dark: #1F2937;
+
+    /* Gradients - Soft hospital theme */
+    --gradient-primary: linear-gradient(135deg, #F5F5FF 0%, #E8EAF6 100%);
+    --gradient-accent: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(232, 234, 246, 0.95) 0%, rgba(159, 168, 218, 0.9) 100%);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply min-w-[320px] min-h-screen bg-primary-100 text-primary-800 font-sans leading-relaxed;
+  }
+
+  #root {
+    @apply w-full min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply leading-tight font-bold text-primary-900 tracking-tight;
+  }
+
+  a {
+    @apply text-inherit no-underline transition-all duration-300 ease-smooth;
+  }
+
+  img {
+    @apply max-w-full h-auto block;
+  }
+
+  button {
+    @apply font-sans cursor-pointer transition-all duration-300 ease-smooth;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+
+  /* Custom scrollbar styling - Soft pastel theme */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-br from-secondary-300 to-accent-300 rounded-md border-2 border-primary-100;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply from-secondary-400 to-accent-400;
+  }
+
+  /* Accessibility - Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-scale-in,
+    .animate-fade-in-down {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Custom utilities layer for gradient backgrounds and other custom utilities */
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: linear-gradient(135deg, #F5F5FF 0%, #E8EAF6 100%);
+  }
+
+  .bg-gradient-secondary {
+    background-image: linear-gradient(135deg, #E8EAF6 0%, #9FA8DA 100%);
+  }
+
+  .bg-gradient-accent {
+    background-image: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%);
+  }
+
+  .bg-gradient-overlay {
+    background-image: linear-gradient(180deg, rgba(232, 234, 246, 0.95) 0%, rgba(159, 168, 218, 0.9) 100%);
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+
+  .bg-gradient-hero {
+    background-image: linear-gradient(180deg, rgba(245, 245, 255, 0.98) 0%, rgba(232, 234, 246, 0.95) 100%);
+  }
+
+  /* Custom timing function utilities */
+  .ease-smooth {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ease-smooth-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  .ease-smooth-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  /* Custom animation utilities */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 0.5s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
