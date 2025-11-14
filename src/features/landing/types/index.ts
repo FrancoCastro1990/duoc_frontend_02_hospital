@@ -9,9 +9,6 @@
  */
 export interface DashboardStatistics {
   totalPatients: number;
-  todaysAppointments: number;
-  activeStaff: number;
-  emergencyCases: number;
 }
 
 /**
@@ -33,6 +30,7 @@ export interface QuickAction {
   id: string;
   label: string;
   variant: 'primary' | 'secondary' | 'danger';
+  path?: string; // Optional navigation path
 }
 
 /**

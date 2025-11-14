@@ -134,7 +134,9 @@ src/features/[feature-name]/
 - A feature with reusable UI elements would add `components/`
 - A feature with search would add an additional hook file for search logic
 
-### Example: Patients Feature
+### Current Features in the Application
+
+#### 1. Patients Feature (Complete)
 
 ```
 src/features/patients/
@@ -161,6 +163,36 @@ src/features/patients/
 
 # MSW Handler:
 src/mocks/handlers/patients.ts   # Intercepts fetch('/api/patients')
+```
+
+#### 2. Landing Feature (Simplified)
+
+```
+src/features/landing/
+├── types/
+│   └── index.ts                 # DashboardStatistics (totalPatients only)
+│                                # FeatureHighlight, QuickAction interfaces
+├── components/
+│   ├── StatisticCard.tsx        # Single stat display (Total Patients)
+│   ├── FeatureCard.tsx          # Single feature card (Patient Management)
+│   ├── QuickActionButton.tsx    # CTA button with navigation
+│   └── index.ts
+├── utils/
+│   └── iconMapper.ts            # Icon mapper (Users icon only)
+├── services/
+│   └── LandingService.ts        # Fetches dashboard data
+├── queries/
+│   ├── keys.ts                  # landingKeys factory
+│   └── options.ts               # createLandingQueryOptions(service)
+├── hooks/
+│   └── useLanding.ts            # Data fetching with refresh functionality
+├── pages/
+│   └── Landing.tsx              # Minimalist landing page
+└── index.ts                     # Public exports
+
+# MSW Handler:
+src/mocks/handlers/landing.ts    # Intercepts fetch('/api/dashboard')
+                                 # Returns: 1 statistic, 1 feature, 1 action
 ```
 
 ## 🎯 Code Conventions
@@ -666,21 +698,33 @@ className="text-sm md:text-base"
 ## 📚 Available Features
 
 ### Landing (`/`)
-- Dashboard overview with statistics
-- Feature highlights
-- Quick actions
+**Minimalist dashboard landing page focused on patient management:**
 - Hero section with hospital branding
+- Single statistic: Total Patients count
+- Single feature highlight: Patient Management
+- Single CTA button: "View Patients" (navigates to `/patients`)
+- Refresh functionality for real-time data updates
+- Designed to reflect current application capabilities
+
+**Technical details:**
+- React Query caching with background refetching
+- MSW mock service for dashboard data
+- Responsive design (mobile-first)
+- Fast animations (200ms) with accessibility support
 
 ### Patients (`/patients`)
+**Comprehensive patient management system:**
 - Patient list with comprehensive table
 - Real-time search functionality (by name or DNI)
 - Statistics cards (Total, Admitted, Discharged)
 - React Query caching and background refetching
 - MSW mock service with realistic patient data
 - Date formatting utilities
+- Professional UI with subtle hover effects
 
 ### Shared
 - Layout component with navigation header
+- Active route highlighting
 - Reusable UI components (future)
 
 ## 🧪 Testing & Development

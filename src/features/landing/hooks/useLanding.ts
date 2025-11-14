@@ -18,9 +18,6 @@ export const useLanding = (service: ILandingService): UseLandingReturn => {
   // Default values for dashboard data
   const defaultStatistics: DashboardStatistics = {
     totalPatients: 0,
-    todaysAppointments: 0,
-    activeStaff: 0,
-    emergencyCases: 0,
   };
 
   // React Query handles data fetching, caching, loading, and error states automatically

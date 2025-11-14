@@ -28,13 +28,13 @@ export const Patients: React.FC = () => {
         <div className="mb-8 bg-gradient-secondary rounded-3xl p-8 md:p-12 shadow-md">
           <div className="flex items-center gap-4 mb-3">
             <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-              <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
+              <Users className="w-8 h-8 md:w-10 md:h-10 text-secondary-600" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary-900">
               Patient Management
             </h1>
           </div>
-          <p className="text-base md:text-lg text-white/90 max-w-3xl">
+          <p className="text-base md:text-lg text-primary-700 max-w-3xl">
             Comprehensive overview of all registered patients in the hospital system
           </p>
         </div>

@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Stethoscope,
-  Calendar,
   Users,
   Heart,
   Activity,
@@ -33,23 +31,22 @@ export const Landing: React.FC<LandingProps> = ({ className = "" }) => {
   return (
     <div className={`min-h-screen bg-primary-100 ${className}`.trim()}>
       {/* Hero Section */}
-      <section className="bg-gradient-secondary p-8 md:p-12 lg:p-16 mb-8 md:mb-12 animate-fade-in-down">
+      <section className="bg-gradient-secondary p-6 md:p-8 lg:p-10 mb-6 md:mb-10 animate-fade-in-down">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-white shadow-lg mb-6">
-            <Heart className="w-8 h-8 md:w-10 md:h-10 text-secondary-600" />
+          <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-white shadow-lg mb-5">
+            <Heart className="w-7 h-7 md:w-8 md:h-8 text-secondary-600" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 mb-4 md:mb-6">
-            Welcome to Hospital Dashboard
+            Hospital Patient Dashboard
           </h1>
           <p className="text-base md:text-lg lg:text-xl text-primary-700 leading-relaxed max-w-3xl mx-auto">
-            Your comprehensive healthcare management system for efficient
-            patient care, staff coordination, and medical records management.
+            Manage patient records, medical history, and treatment plans efficiently.
           </p>
         </div>
       </section>
 
       {/* Statistics Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 md:mb-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-4">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-900">
             Dashboard Overview
@@ -77,73 +74,52 @@ export const Landing: React.FC<LandingProps> = ({ className = "" }) => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          <StatisticCard
-            icon={Users}
-            label="Total Patients"
-            value={statistics.totalPatients}
-            testId="stat-total-patients"
-            delay={0}
-            isLoading={isLoading}
-          />
-          <StatisticCard
-            icon={Calendar}
-            label="Today's Appointments"
-            value={statistics.todaysAppointments}
-            testId="stat-appointments"
-            delay={50}
-            isLoading={isLoading}
-          />
-          <StatisticCard
-            icon={Stethoscope}
-            label="Active Staff"
-            value={statistics.activeStaff}
-            testId="stat-active-staff"
-            delay={100}
-            isLoading={isLoading}
-          />
-          <StatisticCard
-            icon={AlertCircle}
-            label="Emergency Cases"
-            value={statistics.emergencyCases}
-            testId="stat-emergency-cases"
-            delay={150}
-            isLoading={isLoading}
-          />
+        <div className="flex justify-center">
+          <div className="w-full max-w-sm">
+            <StatisticCard
+              icon={Users}
+              label="Total Patients"
+              value={statistics.totalPatients}
+              testId="stat-total-patients"
+              delay={0}
+              isLoading={isLoading}
+            />
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
-        <div className="text-center mb-8 md:mb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 md:mb-10">
+        <div className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-900 mb-3 md:mb-4">
-            Key Features
+            Available Features
           </h2>
           <p className="text-base md:text-lg text-primary-600 max-w-2xl mx-auto">
-            Discover the powerful tools and capabilities of our hospital
-            management system
+            Currently available functionality in the system
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.id} feature={feature} index={index} />
-          ))}
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            {features.map((feature, index) => (
+              <FeatureCard key={feature.id} feature={feature} index={index} />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Quick Actions Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
-        <div className="text-center mb-8 md:mb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 md:pb-14">
+        <div className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-900 mb-3 md:mb-4">
-            Quick Actions
+            Quick Access
           </h2>
           <p className="text-base md:text-lg text-primary-600 max-w-2xl mx-auto">
-            Get started with common tasks and workflows
+            Access patient management quickly
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="flex justify-center">
           {quickActions.map((action) => (
             <QuickActionButton key={action.id} action={action} />
           ))}

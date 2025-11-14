@@ -11,9 +11,6 @@ import type {
  */
 const mockStatistics: DashboardStatistics = {
   totalPatients: 1247,
-  todaysAppointments: 38,
-  activeStaff: 156,
-  emergencyCases: 4,
 };
 
 /**
@@ -27,27 +24,6 @@ const mockFeatures: FeatureHighlight[] = [
       'Efficiently manage patient records, medical history, and treatment plans in one centralized system.',
     icon: 'Users',
   },
-  {
-    id: 'appointments',
-    title: 'Appointments',
-    description:
-      'Schedule, track, and manage patient appointments with automated reminders and notifications.',
-    icon: 'Calendar',
-  },
-  {
-    id: 'medical-records',
-    title: 'Medical Records',
-    description:
-      'Secure digital access to comprehensive medical records, lab results, and diagnostic reports.',
-    icon: 'FileText',
-  },
-  {
-    id: 'staff-directory',
-    title: 'Staff Directory',
-    description:
-      'Access complete staff information including specializations, schedules, and contact details.',
-    icon: 'Stethoscope',
-  },
 ];
 
 /**
@@ -55,19 +31,10 @@ const mockFeatures: FeatureHighlight[] = [
  */
 const mockQuickActions: QuickAction[] = [
   {
-    id: 'schedule-appointment',
-    label: 'Schedule Appointment',
-    variant: 'primary',
-  },
-  {
     id: 'view-patients',
     label: 'View Patients',
-    variant: 'secondary',
-  },
-  {
-    id: 'emergency',
-    label: 'Emergency',
-    variant: 'danger',
+    variant: 'primary',
+    path: '/patients',
   },
 ];
 
