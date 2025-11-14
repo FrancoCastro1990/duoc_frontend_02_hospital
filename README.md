@@ -769,7 +769,6 @@ npm run dev
 
 ## 📝 Additional Resources
 
-- **CLAUDE.md** - Detailed guidance for AI assistants working on this codebase
 - **TanStack Query (React Query) Docs** - https://tanstack.com/query/latest
 - **MSW (Mock Service Worker) Docs** - https://mswjs.io/docs
 - **Tailwind v4 Docs** - https://tailwindcss.com/docs
